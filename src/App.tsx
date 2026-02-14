@@ -1,5 +1,5 @@
-import React from 'react';
 import { useGameStore } from './store/gameStore';
+import { GameStatus } from './engine/types';
 
 function App() {
   const { status, setStatus } = useGameStore();
@@ -19,13 +19,13 @@ function App() {
         <div className="flex gap-4 justify-center">
           <button 
             className="px-6 py-2 bg-blue-600 hover:bg-blue-500 rounded font-bold transition-all shadow-[0_0_15px_rgba(0,100,255,0.4)]"
-            onClick={() => setStatus('PLAYING')}
+            onClick={() => setStatus(GameStatus.PLAYING)}
           >
             START GAME
           </button>
           <button 
             className="px-6 py-2 bg-red-600 hover:bg-red-500 rounded font-bold transition-all shadow-[0_0_15px_rgba(255,0,0,0.4)]"
-            onClick={() => setStatus('GAME_OVER')}
+            onClick={() => setStatus(GameStatus.GAME_OVER)}
           >
             RESET
           </button>
